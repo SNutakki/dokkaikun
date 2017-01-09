@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+
+  "name": "Dokkaikun",
+  "description": "Converts kanji to katakana when the mouse pointer clicks on a kanji.",
+  "version": "0.1",
+
+  "browser_action": {
+    	"default_icon": "dokkaikunOrig.png",
+	"default_title": "Dokkaikun"
+  },
+  
+  "background": {
+	"scripts": ["Background.js"],
+	"persistent": false
+  },
+  
+  "content_scripts": [
+	{
+		"matches": ["<all_urls>"],
+		"js": ["Content.js"]
+	}
+  ],
+  
+  
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "background",
+    "http://*/*",
+    "https://*/*",
+    "storage"
+  ],
+  
+  "web_accessible_resources": [
+      "/node_modules/kuromoji/dict/*"
+  ]
+}
